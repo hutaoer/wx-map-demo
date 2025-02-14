@@ -52,6 +52,7 @@
     "@tarojs/shared": "3.6.15",
     "@tarojs/taro": "3.6.15",
     "coordtransform": "^2.1.2",
+    "qqmap-wx-jssdk": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

@@ -10114,6 +10114,11 @@ pure-rand@^6.0.0:
   resolved "https://registry.npmmirror.com/pure-rand/-/pure-rand-6.1.0.tgz#d173cf23258231976ccbdb05247c9787957604f2"
   integrity sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==
 
+qqmap-wx-jssdk@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/qqmap-wx-jssdk/-/qqmap-wx-jssdk-1.0.0.tgz#8ab4b0d3aa900458217d6fbe52af832bb6c63c73"
+  integrity sha512-wuaNetsA9/OKEQGgK1CNPsX6pppWpY10cQwQu1OHJplGMyMIMzK2bliMkNXjtry99qXYCsvDAWPqw2DI+/foJg==
+
 qs@6.13.0:
   version "6.13.0"
   resolved "https://registry.npmmirror.com/qs/-/qs-6.13.0.tgz#6ca3bd58439f7e245655798997787b0d88a51906"
