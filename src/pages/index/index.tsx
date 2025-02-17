@@ -35,8 +35,8 @@ const hzCurrentInfo = {
 // 杭州目标餐厅，id默认为2
 const hzTargetInfo = {
   id:2,
-  latitude: 30.148198,
-  longitude: 120.081102,
+  latitude: 30.048198,
+  longitude: 120.101102,
   title: '杭州餐厅1',
   iconPath:'',
   width: markerWidth,
@@ -106,6 +106,7 @@ export default function Index() {
   const testTargets = hzTargets
   const [currentLocation, setCurrentLocation] = useState(hzCurrentInfo)
   const [markersList, setMarkersList] = useState(hzOtherMarkers)
+  const [mode, setMode] = useState('driving')
    const [polyline, setPolyline] = useState<any[]>([]);
    const qqmapsdk = new QQMapWX({
     key: 'YRFBZ-JV262-WQAUY-CR4PV-GIYEF-K2BMD'
@@ -115,6 +116,10 @@ export default function Index() {
   useEffect(() => {
     getCurrentPosition()
   }, [])
+
+  useEffect(() => {
+    getRoute(undefined, mode)
+  }, mode)
 
   const getCurrentPosition = async () => {
     try {
@@ -196,7 +201,7 @@ export default function Index() {
       // 确定当前坐标和目标坐标存在
       if(list[0].id === 1 && list[1].id === 2) {
         qqmapsdk.direction({
-          mode: 'driving', // 驾车模式
+          mode: mode, // 驾车模式
           from: `${list[0].latitude},${list[0].longitude}`,
           to: `${list[1].latitude},${list[1].longitude}`,
           success: (res: any) => {
@@ -234,12 +239,13 @@ export default function Index() {
       console.error('坐标信息获取有误')
     }
   };
-  const getCurrentLocation = () => {
-    getRoute(undefined, 'walking')
-  }
+  // const getCurrentLocation = () => {
+  //   getRoute(undefined, mode === 'walking')
+  // }
 
   const changeTransportType = () => {
-    getCurrentLocation()
+    const m = mode === 'driving' ? 'walking' : 'driving'
+    setMode(m)
   }
 
   return (
@@ -259,7 +265,7 @@ export default function Index() {
       {/* } */}
       {/* <Button onClick={getCurrentLocation}>获取当前位置</Button> */}
       <Button onClick={openNavigation}>导航前往</Button>
-      {/* <Button onClick={changeTransportType}>切换交通方式</Button> */}
+      <Button onClick={changeTransportType}>切换交通方式</Button>
     </View>
   )
 }
