@@ -206,10 +206,10 @@ export default function Index() {
       mode: 'driving', // 驾车模式
       // from: `${startPoint.latitude},${startPoint.longitude}`, // 起点坐标，格式：纬度,经度
       // to: `${endPoint.latitude},${endPoint.longitude}`, // 终点坐标，格式：纬度,经度
-      from: '40.034852,116.319820',
-      to: '39.771075,116.351395',
-      // from: `${markers[0].latitude},${markers[0].longitude}`,
-      // to: `${markers[1].latitude},${markers[1].longitude}`,
+      // from: '40.034852,116.319820',
+      // to: '39.771075,116.351395',
+      from: `${markers[0].latitude},${markers[0].longitude}`,
+      to: `${markers[1].latitude},${markers[1].longitude}`,
       success: (res: any) => {
         const ret = res.result.routes[0];
         console.log('success', ret)
@@ -220,8 +220,8 @@ export default function Index() {
           }
           for (let i = 0; i < ret.polyline.length; i += 2) {
             points.push({
-              latitude: ret.polyline[i + 1],
-              longitude: ret.polyline[i]
+              longitude: ret.polyline[i + 1],
+              latitude: ret.polyline[i]
             });
           }
         }
@@ -229,7 +229,7 @@ export default function Index() {
         setPolyline([
           {
             points: points,
-            color: '#FF0000DD',
+            color: '#0093FF',
             width: 4
           }
         ]);
